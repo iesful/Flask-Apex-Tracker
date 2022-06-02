@@ -1,0 +1,5 @@
+- change python dict references to json notation
+- continue with player page (use aside tag??)
+- fix maps page
+- fix crafters page (image positioning like player page)
+- implement store page

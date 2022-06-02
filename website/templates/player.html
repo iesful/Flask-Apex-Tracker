@@ -1,0 +1,79 @@
+{% extends "base.html" %}
+{% block title %}stats{% endblock %}
+
+
+{% block body %}
+
+{% with messages = get_flashed_messages(with_categories=true) %}
+{% if messages %}
+  {% for category, message in messages %}
+  {% if category == 'error' %}
+  <div class="alert alert-danger alert-dismissible fade show" role="alert">
+    {{ message }}
+    <button type="button" class="btn-close" data-dismiss="alert">
+      <span aria-hidden="true"></span>
+    </button>
+  </div>
+  {% else %}
+  <div class="alert alert-success alert-dismissible fade show" role="alert">
+    {{ message }}
+    <button type="button" class="btn-close" data-dismiss="alert">
+      <span aria-hidden="true"></span>
+    </button>
+  </div>
+  {% endif %}
+  {% endfor %}
+{% endif %}
+{% endwith %}
+
+{% if not gathered %}
+<div class="px-4 py-5 mt-3 text-center">
+    <img class="d-block mx-auto" src="../static/apex-logo-svg.svg" alt="" width="192" height="192">
+    <h1 class="display-5 fw-bold text-decoration-underline">player stats</h1>
+    <div class="col-lg-6 mx-auto">
+      <p class="lead mb-4">input your username and select your platform</p>
+      <form class="d-flex justify-content-center" method="POST" id="player-stats">
+        <input class="form-control me-2 w-25" type="text" placeholder="username" id="username" name="playername" required="required">
+        <select class="form-select me-2 w-25 text-muted" id="platform" name="playerplatform" required="required">
+            <option selected>platform</option>
+            <option value="PC">pc</option>
+            <option value="PS4">playstation</option>
+            <option value="X1">xbox</option>
+          </select>
+        <button class="btn btn-secondary" type="submit">go</button>
+    </form>
+    </div>
+</div>
+
+
+{% else %}
+<div class="border border-3 border-dark rounded-3 px-4 py-5 mt-5 mx-5 text-center shadow-lg"
+        style='background-image: url("{{ player_info.legends.selected.ImgAssets.banner }}");
+                background-repeat: no-repeat;
+                background-position: center;
+                background-size: cover;'>
+    <img class="d-block mx-auto" src="../static/apex-logo-svg.svg" alt="" width="192" height="192" style="filter:invert(100%)">
+    <h1 class="display-5 fw-bold text-white text-decoration-underline position-relative">{{ player_info.global.name.lower() }}
+    </h1>    
+    <div class="col-lg-6 mx-auto">
+        <p class="h4 text-white font-monospace fw-bold"><strong>uid: {{ player_info.global.uid }}</strong></p>
+        {% if player_info.realtime.currentState == 'offline' %}
+        <button type="button" class="btn btn-danger disabled">offline</button>
+        {% else %}
+        <button type="button" class="btn btn-success disabled">online</button>
+        {% endif %}
+    </div>
+</div>
+<div class="mt-4 mx-4 border border-bottom border-2 border-dark">
+
+</div>
+
+
+
+
+
+
+
+
+{% endif %}
+{% endblock %}

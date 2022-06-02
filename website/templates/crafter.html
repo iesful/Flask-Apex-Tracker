@@ -1,0 +1,227 @@
+{% extends "base.html" %}
+{% block title %}replicator{% endblock %}
+
+{% block body %}
+<!-- {{ items[0] }}
+<br>
+{{ items[1] }}
+<br>
+{{ items[2] }} -->
+
+<!-- daily-weekly items -->
+<div class="container-fluid px-5 pt-4" id="custom-cards">
+    <h2 class="pb-2 pt-2 border-bottom text-center fw-bold">daily | weekly items</h2>
+
+    <div class="row row-cols-1 row-cols-lg-4 align-items-stretch g-5 py-3">
+      <div class="col">
+        <div class="card card-cover h-100 overflow-hidden text-white bg-dark rounded-4 shadow-lg" style='background-image: url("{{ items[0][0][1] }}");'>
+          <div class="d-flex flex-column h-100 p-5 pb-3 text-black text-center text-shadow-1">
+            <h2 class="pt-5 mt-5 mb-4 display-6 lh-1 fw-bolder text-decoration-underline">{{ items[0][0][0].replace("_", " ") }}</h2>
+            <ul class="d-flex list-unstyled mt-auto">
+              <li class="me-auto">
+                <img src="../static/apex-logo-svg.svg" alt="Apex" width="48" height="48">
+              </li>
+              <li class="d-flex align-items-center me-3 fw-bold">
+                <svg class="bi me-2" width="1em" height="1em"><use xlink:href="#geo-fill"/></svg>
+                <small>{{ items[0][0][2] }} crafting material</small>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="col">
+        <div class="card card-cover h-100 overflow-hidden text-white bg-dark rounded-4 shadow-lg" style="background-image: url('{{ items[0][1][1] }}');">
+          <div class="d-flex flex-column h-100 p-5 pb-3 text-black text-center text-shadow-1">
+            <h2 class="pt-5 mt-5 mb-4 display-6 lh-1 fw-bolder text-decoration-underline">{{ items[0][1][0].replace("_", " ") }}</h2>
+            <ul class="d-flex list-unstyled mt-auto">
+              <li class="me-auto">
+                <img src="../static/apex-logo-svg.svg" alt="Apex" width="48" height="48">
+              </li>
+              <li class="d-flex align-items-center me-3 fw-bold">
+                <svg class="bi me-2" width="1em" height="1em"><use xlink:href="#geo-fill"/></svg>
+                <small>{{ items[0][1][2] }} crafting material</small>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="col">
+        <div class="card card-cover h-100 overflow-hidden text-white bg-dark rounded-4 shadow-lg" style="background-image: url('{{ items[1][0][1] }}');">
+          <div class="d-flex flex-column h-100 p-5 pb-3 text-black text-center text-shadow-1">
+            <h2 class="pt-5 mt-5 mb-4 display-6 lh-1 fw-bold text-decoration-underline">{{ items[1][0][0].replace("_", " ") }}</h2>
+            <ul class="d-flex list-unstyled mt-auto">
+              <li class="me-auto">
+                <img src="../static/apex-logo-svg.svg" alt="Apex" width="48" height="48">
+              </li>
+              <li class="d-flex align-items-center me-3 fw-bold">
+                <svg class="bi me-2" width="1em" height="1em"><use xlink:href="#geo-fill"/></svg>
+                <small>{{ items[1][0][2] }} crafting material</small>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="col">
+        <div class="card card-cover h-100 overflow-hidden text-white bg-dark rounded-4 shadow-lg" style="background-image: url('{{ items[1][1][1] }}');">
+          <div class="d-flex flex-column h-100 p-5 pb-3 text-black text-center text-shadow-1">
+            <h2 class="pt-5 mt-5 mb-4 display-6 lh-1 fw-bold text-decoration-underline">{{ items[1][1][0].replace("_", " ") }}</h2>
+            <ul class="d-flex list-unstyled mt-auto">
+              <li class="me-auto">
+                <img src="../static/apex-logo-svg.svg" alt="Apex" width="48" height="48">
+              </li>
+              <li class="d-flex align-items-center me-3 fw-bold">
+                <svg class="bi me-2" width="1em" height="1em"><use xlink:href="#geo-fill"/></svg>
+                <small>{{ items[1][1][2] }} crafting material</small>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- permanent items -->
+  <div class="container-fluid px-5 pt-5" id="custom-cards">
+    <h2 class="pb-2 border-bottom text-center fw-bold">permanent items</h2>
+
+    <div class="row row-cols-1 row-cols-lg-4 align-items-stretch g-5 py-3 justify-content-evenly">
+      <div class="col">
+        <div class="card card-cover h-100 overflow-hidden text-white bg-dark rounded-4 shadow-lg" style='background-image: url("{{ items[2][0][1] }}");'>
+          <div class="d-flex flex-column h-100 p-5 pb-3 text-black text-center text-shadow-1">
+            <h2 class="pt-5 mt-5 mb-4 display-6 lh-1 fw-bolder text-decoration-underline">{{ items[2][0][0].replace("_", " ") }}</h2>
+            <ul class="d-flex list-unstyled mt-auto">
+              <li class="me-auto">
+                <img src="../static/apex-logo-svg.svg" alt="Apex" width="48" height="48">
+              </li>
+              <li class="d-flex align-items-center me-3 fw-bold">
+                <svg class="bi me-2" width="1em" height="1em"><use xlink:href="#geo-fill"/></svg>
+                <small>{{ items[2][0][2] }} crafting material</small>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="col">
+        <div class="card card-cover h-100 overflow-hidden text-white bg-dark rounded-4 shadow-lg" style="background-image: url('{{ items[2][1][1] }}');">
+          <div class="d-flex flex-column h-100 p-5 pb-3 text-black text-center text-shadow-1">
+            <h2 class="pt-5 mt-5 mb-4 display-6 lh-1 fw-bolder text-decoration-underline">{{ items[2][1][0].replace("_", " ") }}</h2>
+            <ul class="d-flex list-unstyled mt-auto">
+              <li class="me-auto">
+                <img src="../static/apex-logo-svg.svg" alt="Apex" width="48" height="48">
+              </li>
+              <li class="d-flex align-items-center me-3 fw-bold">
+                <svg class="bi me-2" width="1em" height="1em"><use xlink:href="#geo-fill"/></svg>
+                <small>{{ items[2][1][2] }} crafting material</small>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="col">
+        <div class="card card-cover h-100 overflow-hidden text-white bg-dark rounded-4 shadow-lg" style="background-image: url('{{ items[2][2][1] }}');">
+          <div class="d-flex flex-column h-100 p-5 pb-3 text-black text-center text-shadow-1">
+            <h2 class="pt-5 mt-5 mb-4 display-6 lh-1 fw-bold text-decoration-underline">{{ items[2][2][0].replace("_", " ") }}</h2>
+            <ul class="d-flex list-unstyled mt-auto">
+              <li class="me-auto">
+                <img src="../static/apex-logo-svg.svg" alt="Apex" width="48" height="48">
+              </li>
+              <li class="d-flex align-items-center me-3 fw-bold">
+                <svg class="bi me-2" width="1em" height="1em"><use xlink:href="#geo-fill"/></svg>
+                <small>{{ items[2][2][2] }} crafting material</small>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="col">
+        <div class="card card-cover h-100 overflow-hidden text-white bg-dark rounded-4 shadow-lg" style="background-image: url('{{ items[2][3][1] }}');">
+          <div class="d-flex flex-column h-100 p-5 pb-3 text-black text-center text-shadow-1">
+            <h2 class="pt-5 mt-5 mb-4 display-6 lh-1 fw-bold text-decoration-underline">{{ items[2][3][0].replace("_", " ") }}</h2>
+            <ul class="d-flex list-unstyled mt-auto">
+              <li class="me-auto">
+                <img src="../static/apex-logo-svg.svg" alt="Apex" width="48" height="48">
+              </li>
+              <li class="d-flex align-items-center me-3 fw-bold">
+                <svg class="bi me-2" width="1em" height="1em"><use xlink:href="#geo-fill"/></svg>
+                <small>{{ items[2][3][2] }} crafting material</small>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="col justify-content-around">
+        <div class="card card-cover h-100 overflow-hidden text-white bg-dark rounded-4 shadow-lg" style="background-image: url('{{ items[2][4][1] }}');">
+          <div class="d-flex flex-column h-100 p-5 pb-3 text-black text-center text-shadow-1">
+            <h2 class="pt-5 mt-5 mb-4 display-6 lh-1 fw-bold text-decoration-underline">{{ items[2][4][0].replace("_", " ") }}</h2>
+            <ul class="d-flex list-unstyled mt-auto">
+              <li class="me-auto">
+                <img src="../static/apex-logo-svg.svg" alt="Apex" width="48" height="48">
+              </li>
+              <li class="d-flex align-items-center me-3 fw-bold">
+                <svg class="bi me-2" width="1em" height="1em"><use xlink:href="#geo-fill"/></svg>
+                <small>{{ items[2][4][2] }} crafting material</small>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="col">
+        <div class="card card-cover h-100 overflow-hidden text-white bg-dark rounded-4 shadow-lg" style="background-image: url('{{ items[2][5][1] }}');">
+          <div class="d-flex flex-column h-100 p-5 pb-3 text-black text-center text-shadow-1">
+            <h2 class="pt-5 mt-5 mb-4 display-6 lh-1 fw-bold text-decoration-underline">{{ items[2][5][0].replace("_", " ") }}</h2>
+            <ul class="d-flex list-unstyled mt-auto">
+              <li class="me-auto">
+                <img src="../static/apex-logo-svg.svg" alt="Apex" width="48" height="48">
+              </li>
+              <li class="d-flex align-items-center me-3 fw-bold">
+                <svg class="bi me-2" width="1em" height="1em"><use xlink:href="#geo-fill"/></svg>
+                <small>{{ items[2][5][2] }} crafting material</small>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+{% endblock %}
+
+{% block footer %}
+<footer class="d-flex flex-wrap justify-content-between py-3 my-4 border-top">
+  <div class="col-md-4 d-flex align-items-center">
+    <a href="/" class="ms-5 me-2 mb-md-0 text-muted text-decoration-none lh-1">
+      <!-- <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-emoji-wink" viewBox="0 0 16 16">
+        <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+        <path d="M4.285 9.567a.5.5 0 0 1 .683.183A3.498 3.498 0 0 0 8 11.5a3.498 3.498 0 0 0 3.032-1.75.5.5 0 1 1 .866.5A4.498 4.498 0 0 1 8 12.5a4.498 4.498 0 0 1-3.898-2.25.5.5 0 0 1 .183-.683zM7 6.5C7 7.328 6.552 8 6 8s-1-.672-1-1.5S5.448 5 6 5s1 .672 1 1.5zm1.757-.437a.5.5 0 0 1 .68.194.934.934 0 0 0 .813.493c.339 0 .645-.19.813-.493a.5.5 0 1 1 .874.486A1.934 1.934 0 0 1 10.25 7.75c-.73 0-1.356-.412-1.687-1.007a.5.5 0 0 1 .194-.68z"/>
+      </svg> -->
+    </a>
+    <span class="mb-3 mb-md-0 text-muted">attester '22</span>
+  </div>
+
+  <ul class="nav col-md-4 justify-content-end list-unstyled d-flex">
+    <li class="me-4"><a class="text-muted" href="https://github.com/iesful" target="_blank">
+      <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-github" viewBox="0 0 16 16">
+      <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.012 8.012 0 0 0 16 8c0-4.42-3.58-8-8-8z"/>
+    </svg>
+  </a>
+</li>
+    <li class="me-5"><a class="text-muted" href="https://portal.apexlegendsapi.com/" target="_blank">
+      <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-server" viewBox="0 0 16 16">
+      <path d="M1.333 2.667C1.333 1.194 4.318 0 8 0s6.667 1.194 6.667 2.667V4c0 1.473-2.985 2.667-6.667 2.667S1.333 5.473 1.333 4V2.667z"/>
+      <path d="M1.333 6.334v3C1.333 10.805 4.318 12 8 12s6.667-1.194 6.667-2.667V6.334a6.51 6.51 0 0 1-1.458.79C11.81 7.684 9.967 8 8 8c-1.966 0-3.809-.317-5.208-.876a6.508 6.508 0 0 1-1.458-.79z"/>
+      <path d="M14.667 11.668a6.51 6.51 0 0 1-1.458.789c-1.4.56-3.242.876-5.21.876-1.966 0-3.809-.316-5.208-.876a6.51 6.51 0 0 1-1.458-.79v1.666C1.333 14.806 4.318 16 8 16s6.667-1.194 6.667-2.667v-1.665z"/>
+    </svg>
+  </a>
+</li>
+  </ul>
+</footer>
+{% endblock %}

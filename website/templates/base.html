@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{% block title %} am i bad? {% endblock %}</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" 
+    rel="stylesheet" 
+    integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" 
+    crossorigin="anonymous">
+    <link href="../static/heroes.css" rel="stylesheet">
+    <link href="../static/product.css" rel="stylesheet">
+    <link href="../static/features.css" rel="stylesheet">
+  </head>
+  <body>
+
+    
+    <nav class="navbar navbar-expand-lg navbar-dark sticky-top bg-dark">
+        <div class="container-fluid">
+          <a class="navbar-brand" aria-current="true" href="/">attester</a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                <a class="nav-link active" id="to-pred" href="/to-pred">am i pred? &#128073;&#128072;</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link active" id="maps" href="/maps">is it worlds edge?</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link active" id="crafter" href="/crafter">what's craftin?</a>
+              </li>
+            </ul>
+
+            <!-- logo -->
+            <div class="conatiner-fluid">
+              <a class="navbar-brand" href="/">
+                <img src="../static/wattson-peeker0test.png" alt="wattson" width="92" height="92" class="position-absolute top-100 start-50 translate-middle overflow-visible"> 
+              </a>
+            </div>
+
+            <form class="d-flex" method="POST" id="player-stats">
+                <input class="form-control me-2" type="text" placeholder="username" id="username" name="playername" required="required">
+                <select class="form-select me-2 text-muted" id="platform" name="playerplatform" required="required">
+                    <option selected>platform</option>
+                    <option value="PC">pc</option>
+                    <option value="PS4">playstation</option>
+                    <option value="X1">xbox</option>
+                  </select>
+                <button class="btn btn-secondary" type="submit" formaction="/player">go</button>
+            </form>
+          </div>
+        </div>
+      </nav>
+      {% block body %}
+
+
+      <div class="container my-5">
+        <div class="row p-4 pb-0 pe-lg-0 pt-lg-5 align-items-center rounded-3 border shadow-lg">
+          <div class="col-lg-7 p-3 p-lg-5 pt-lg-3">
+            <h1 class="display-4 fw-bold lh-1">track your apex legends stats and improve.</h1>
+            <p class="lead">do you hate storm point and want to avoid it? check which map is in rotate. want to see how far from pred you are? go on ahead! with account stats at your fingertips, you'll easily be able to tell if you're getting better or are still bad. do enjoy!</p>
+            <div class="d-grid gap-2 d-md-flex justify-content-md-start mb-4 mb-lg-3">
+              <a href="/player" class="btn btn-primary btn-lg btn-dark px-4 me-md-2 fw-bold" role="button">track</a>
+              <a href="/services" class="btn btn-outline-secondary btn-lg btn-light px-4" role="button">services</a>
+            </div>
+          </div>
+          <div class="col-lg-4 offset-lg-1 p-0 overflow-hidden shadow-lg">
+              <img class="rounded-lg-3" src="../static/mirage.jpg" alt="" width="720">
+          </div>
+        </div>
+      </div>
+
+{% endblock %}
+    
+
+
+
+    <script
+      src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+      integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+      crossorigin="anonymous">
+    </script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+      integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+      crossorigin="anonymous">
+    </script>
+    <script
+      src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+      integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+      crossorigin="anonymous">
+    </script>
+  </body>
+  
+
+<!-- footer -->
+{% block footer %}
+
+{% endblock %}
+
+
+</html>
