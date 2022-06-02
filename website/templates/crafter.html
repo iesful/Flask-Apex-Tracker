@@ -2,83 +2,56 @@
 {% block title %}replicator{% endblock %}
 
 {% block body %}
-<!-- {{ items[0] }}
-<br>
-{{ items[1] }}
-<br>
-{{ items[2] }} -->
 
 <!-- daily-weekly items -->
 <div class="container-fluid px-5 pt-4" id="custom-cards">
     <h2 class="pb-2 pt-2 border-bottom text-center fw-bold">daily | weekly items</h2>
 
-    <div class="row row-cols-1 row-cols-lg-4 align-items-stretch g-5 py-3">
-      <div class="col">
-        <div class="card card-cover h-100 overflow-hidden text-white bg-dark rounded-4 shadow-lg" style='background-image: url("{{ items[0][0][1] }}");'>
-          <div class="d-flex flex-column h-100 p-5 pb-3 text-black text-center text-shadow-1">
-            <h2 class="pt-5 mt-5 mb-4 display-6 lh-1 fw-bolder text-decoration-underline">{{ items[0][0][0].replace("_", " ") }}</h2>
-            <ul class="d-flex list-unstyled mt-auto">
-              <li class="me-auto">
-                <img src="../static/apex-logo-svg.svg" alt="Apex" width="48" height="48">
-              </li>
-              <li class="d-flex align-items-center me-3 fw-bold">
-                <svg class="bi me-2" width="1em" height="1em"><use xlink:href="#geo-fill"/></svg>
-                <small>{{ items[0][0][2] }} crafting material</small>
-              </li>
+        <div class="d-flex px-4 py-1 mt-4 justify-content-around">
+          <div class="card align-items-center shadow-lg border border-2 border-secondary" style="width: 20vw;">
+            <img src="{{ daily[0].itemType.asset }}" class="card-img-top" alt="rank">
+            <div class="card-body">
+              <h5 class="card-title text-center h4 fw-bolder">{{ daily[0].itemType.name.replace("_", " ") }}</h5>
+            </div>
+            <ul class="list-group list-group-flush text-center">
+              <li class="list-group-item h5 fw-bold fst-italic">{{ daily[0].cost }} crafting material</li>
+              <li class="list-group-item h5 fw-bold fst-italic">daily item</li>
             </ul>
           </div>
+      
+
+      <div class="card align-items-center shadow-lg border border-2 border-secondary" style="width: 20vw;">
+        <img src="{{ daily[1].itemType.asset }}" class="card-img-top" alt="rank">
+        <div class="card-body">
+          <h5 class="card-title text-center h4 fw-bolder">{{ daily[1].itemType.name.replace("_", " ") }}</h5>
         </div>
+        <ul class="list-group list-group-flush text-center">
+          <li class="list-group-item h5 fw-bold fst-italic">{{ daily[1].cost }} crafting material</li>
+          <li class="list-group-item h5 fw-bold fst-italic">daily item</li>
+        </ul>
       </div>
 
-      <div class="col">
-        <div class="card card-cover h-100 overflow-hidden text-white bg-dark rounded-4 shadow-lg" style="background-image: url('{{ items[0][1][1] }}');">
-          <div class="d-flex flex-column h-100 p-5 pb-3 text-black text-center text-shadow-1">
-            <h2 class="pt-5 mt-5 mb-4 display-6 lh-1 fw-bolder text-decoration-underline">{{ items[0][1][0].replace("_", " ") }}</h2>
-            <ul class="d-flex list-unstyled mt-auto">
-              <li class="me-auto">
-                <img src="../static/apex-logo-svg.svg" alt="Apex" width="48" height="48">
-              </li>
-              <li class="d-flex align-items-center me-3 fw-bold">
-                <svg class="bi me-2" width="1em" height="1em"><use xlink:href="#geo-fill"/></svg>
-                <small>{{ items[0][1][2] }} crafting material</small>
-              </li>
-            </ul>
-          </div>
+      <div class="card align-items-center shadow-lg border border-2 border-secondary" style="width: 20vw;">
+        <img src="{{ weekly[0].itemType.asset }}" class="card-img-top" alt="rank">
+        <div class="card-body">
+          <h5 class="card-title text-center h4 fw-bolder">{{ weekly[0].itemType.name.replace("_", " ") }}</h5>
         </div>
+        <ul class="list-group list-group-flush text-center">
+          <li class="list-group-item h5 fw-bold fst-italic">{{ weekly[0].cost }} crafting material</li>
+          <li class="list-group-item h5 fw-bold fst-italic">weekly item</li>
+
+        </ul>
       </div>
 
-      <div class="col">
-        <div class="card card-cover h-100 overflow-hidden text-white bg-dark rounded-4 shadow-lg" style="background-image: url('{{ items[1][0][1] }}');">
-          <div class="d-flex flex-column h-100 p-5 pb-3 text-black text-center text-shadow-1">
-            <h2 class="pt-5 mt-5 mb-4 display-6 lh-1 fw-bold text-decoration-underline">{{ items[1][0][0].replace("_", " ") }}</h2>
-            <ul class="d-flex list-unstyled mt-auto">
-              <li class="me-auto">
-                <img src="../static/apex-logo-svg.svg" alt="Apex" width="48" height="48">
-              </li>
-              <li class="d-flex align-items-center me-3 fw-bold">
-                <svg class="bi me-2" width="1em" height="1em"><use xlink:href="#geo-fill"/></svg>
-                <small>{{ items[1][0][2] }} crafting material</small>
-              </li>
-            </ul>
-          </div>
+      <div class="card align-items-center shadow-lg border border-2 border-secondary" style="width: 20vw;">
+        <img src="{{ weekly[1].itemType.asset }}" class="card-img-top" alt="rank">
+        <div class="card-body">
+          <h5 class="card-title text-center h4 fw-bolder">{{ weekly[1].itemType.name.replace("_", " ") }}</h5>
         </div>
-      </div>
-
-      <div class="col">
-        <div class="card card-cover h-100 overflow-hidden text-white bg-dark rounded-4 shadow-lg" style="background-image: url('{{ items[1][1][1] }}');">
-          <div class="d-flex flex-column h-100 p-5 pb-3 text-black text-center text-shadow-1">
-            <h2 class="pt-5 mt-5 mb-4 display-6 lh-1 fw-bold text-decoration-underline">{{ items[1][1][0].replace("_", " ") }}</h2>
-            <ul class="d-flex list-unstyled mt-auto">
-              <li class="me-auto">
-                <img src="../static/apex-logo-svg.svg" alt="Apex" width="48" height="48">
-              </li>
-              <li class="d-flex align-items-center me-3 fw-bold">
-                <svg class="bi me-2" width="1em" height="1em"><use xlink:href="#geo-fill"/></svg>
-                <small>{{ items[1][1][2] }} crafting material</small>
-              </li>
-            </ul>
-          </div>
-        </div>
+        <ul class="list-group list-group-flush text-center">
+          <li class="list-group-item h5 fw-bold fst-italic">{{ weekly[0].cost }} crafting material</li>
+          <li class="list-group-item h5 fw-bold fst-italic">weekly item</li>
+        </ul>
       </div>
     </div>
   </div>
@@ -87,110 +60,70 @@
   <div class="container-fluid px-5 pt-5" id="custom-cards">
     <h2 class="pb-2 border-bottom text-center fw-bold">permanent items</h2>
 
-    <div class="row row-cols-1 row-cols-lg-4 align-items-stretch g-5 py-3 justify-content-evenly">
-      <div class="col">
-        <div class="card card-cover h-100 overflow-hidden text-white bg-dark rounded-4 shadow-lg" style='background-image: url("{{ items[2][0][1] }}");'>
-          <div class="d-flex flex-column h-100 p-5 pb-3 text-black text-center text-shadow-1">
-            <h2 class="pt-5 mt-5 mb-4 display-6 lh-1 fw-bolder text-decoration-underline">{{ items[2][0][0].replace("_", " ") }}</h2>
-            <ul class="d-flex list-unstyled mt-auto">
-              <li class="me-auto">
-                <img src="../static/apex-logo-svg.svg" alt="Apex" width="48" height="48">
-              </li>
-              <li class="d-flex align-items-center me-3 fw-bold">
-                <svg class="bi me-2" width="1em" height="1em"><use xlink:href="#geo-fill"/></svg>
-                <small>{{ items[2][0][2] }} crafting material</small>
-              </li>
-            </ul>
-          </div>
+    <div class="d-flex px-4 py-1 mt-4 justify-content-around">
+      <div class="card align-items-center shadow-lg border border-2 border-secondary" style="width: 20vw;">
+        <img src="{{ permanent[0].itemType.asset }}" class="card-img-top" alt="rank">
+        <div class="card-body">
+          <h5 class="card-title text-center h4 fw-bolder">{{ permanent[0].itemType.name.replace("_", " ") }}</h5>
         </div>
+        <ul class="list-group list-group-flush text-center">
+          <li class="list-group-item h5 fw-bold fst-italic">{{ permanent[0].cost }} crafting material</li>
+        </ul>
       </div>
+  
 
-      <div class="col">
-        <div class="card card-cover h-100 overflow-hidden text-white bg-dark rounded-4 shadow-lg" style="background-image: url('{{ items[2][1][1] }}');">
-          <div class="d-flex flex-column h-100 p-5 pb-3 text-black text-center text-shadow-1">
-            <h2 class="pt-5 mt-5 mb-4 display-6 lh-1 fw-bolder text-decoration-underline">{{ items[2][1][0].replace("_", " ") }}</h2>
-            <ul class="d-flex list-unstyled mt-auto">
-              <li class="me-auto">
-                <img src="../static/apex-logo-svg.svg" alt="Apex" width="48" height="48">
-              </li>
-              <li class="d-flex align-items-center me-3 fw-bold">
-                <svg class="bi me-2" width="1em" height="1em"><use xlink:href="#geo-fill"/></svg>
-                <small>{{ items[2][1][2] }} crafting material</small>
-              </li>
-            </ul>
-          </div>
-        </div>
-      </div>
-
-      <div class="col">
-        <div class="card card-cover h-100 overflow-hidden text-white bg-dark rounded-4 shadow-lg" style="background-image: url('{{ items[2][2][1] }}');">
-          <div class="d-flex flex-column h-100 p-5 pb-3 text-black text-center text-shadow-1">
-            <h2 class="pt-5 mt-5 mb-4 display-6 lh-1 fw-bold text-decoration-underline">{{ items[2][2][0].replace("_", " ") }}</h2>
-            <ul class="d-flex list-unstyled mt-auto">
-              <li class="me-auto">
-                <img src="../static/apex-logo-svg.svg" alt="Apex" width="48" height="48">
-              </li>
-              <li class="d-flex align-items-center me-3 fw-bold">
-                <svg class="bi me-2" width="1em" height="1em"><use xlink:href="#geo-fill"/></svg>
-                <small>{{ items[2][2][2] }} crafting material</small>
-              </li>
-            </ul>
-          </div>
-        </div>
-      </div>
-
-      <div class="col">
-        <div class="card card-cover h-100 overflow-hidden text-white bg-dark rounded-4 shadow-lg" style="background-image: url('{{ items[2][3][1] }}');">
-          <div class="d-flex flex-column h-100 p-5 pb-3 text-black text-center text-shadow-1">
-            <h2 class="pt-5 mt-5 mb-4 display-6 lh-1 fw-bold text-decoration-underline">{{ items[2][3][0].replace("_", " ") }}</h2>
-            <ul class="d-flex list-unstyled mt-auto">
-              <li class="me-auto">
-                <img src="../static/apex-logo-svg.svg" alt="Apex" width="48" height="48">
-              </li>
-              <li class="d-flex align-items-center me-3 fw-bold">
-                <svg class="bi me-2" width="1em" height="1em"><use xlink:href="#geo-fill"/></svg>
-                <small>{{ items[2][3][2] }} crafting material</small>
-              </li>
-            </ul>
-          </div>
-        </div>
-      </div>
-
-      <div class="col justify-content-around">
-        <div class="card card-cover h-100 overflow-hidden text-white bg-dark rounded-4 shadow-lg" style="background-image: url('{{ items[2][4][1] }}');">
-          <div class="d-flex flex-column h-100 p-5 pb-3 text-black text-center text-shadow-1">
-            <h2 class="pt-5 mt-5 mb-4 display-6 lh-1 fw-bold text-decoration-underline">{{ items[2][4][0].replace("_", " ") }}</h2>
-            <ul class="d-flex list-unstyled mt-auto">
-              <li class="me-auto">
-                <img src="../static/apex-logo-svg.svg" alt="Apex" width="48" height="48">
-              </li>
-              <li class="d-flex align-items-center me-3 fw-bold">
-                <svg class="bi me-2" width="1em" height="1em"><use xlink:href="#geo-fill"/></svg>
-                <small>{{ items[2][4][2] }} crafting material</small>
-              </li>
-            </ul>
-          </div>
-        </div>
-      </div>
-
-      <div class="col">
-        <div class="card card-cover h-100 overflow-hidden text-white bg-dark rounded-4 shadow-lg" style="background-image: url('{{ items[2][5][1] }}');">
-          <div class="d-flex flex-column h-100 p-5 pb-3 text-black text-center text-shadow-1">
-            <h2 class="pt-5 mt-5 mb-4 display-6 lh-1 fw-bold text-decoration-underline">{{ items[2][5][0].replace("_", " ") }}</h2>
-            <ul class="d-flex list-unstyled mt-auto">
-              <li class="me-auto">
-                <img src="../static/apex-logo-svg.svg" alt="Apex" width="48" height="48">
-              </li>
-              <li class="d-flex align-items-center me-3 fw-bold">
-                <svg class="bi me-2" width="1em" height="1em"><use xlink:href="#geo-fill"/></svg>
-                <small>{{ items[2][5][2] }} crafting material</small>
-              </li>
-            </ul>
-          </div>
-        </div>
-      </div>
-
+  <div class="card align-items-center shadow-lg border border-2 border-secondary" style="width: 20vw;">
+    <img src="{{ permanent[1].itemType.asset }}" class="card-img-top" alt="rank">
+    <div class="card-body">
+      <h5 class="card-title text-center h4 fw-bolder">{{ permanent[1].itemType.name.replace("_", " ") }}</h5>
     </div>
+    <ul class="list-group list-group-flush text-center">
+      <li class="list-group-item h5 fw-bold fst-italic">{{ permanent[1].cost }} crafting material</li>
+    </ul>
+  </div>
+
+  <div class="card align-items-center shadow-lg border border-2 border-secondary" style="width: 20vw;">
+    <img src="{{ permanent[2].itemType.asset }}" class="card-img-top" alt="rank">
+    <div class="card-body">
+      <h5 class="card-title text-center h4 fw-bolder">{{ permanent[2].itemType.name.replace("_", " ") }}</h5>
+    </div>
+    <ul class="list-group list-group-flush text-center">
+      <li class="list-group-item h5 fw-bold fst-italic">{{ permanent[2].cost }} crafting material</li>
+    </ul>
+  </div>
+
+  <div class="card align-items-center shadow-lg border border-2 border-secondary" style="width: 20vw;">
+    <img src="{{ permanent[3].itemType.asset }}" class="card-img-top" alt="rank">
+    <div class="card-body">
+      <h5 class="card-title text-center h4 fw-bolder">{{ permanent[3].itemType.name.replace("_", " ") }}</h5>
+    </div>
+    <ul class="list-group list-group-flush text-center">
+      <li class="list-group-item h5 fw-bold fst-italic">{{ permanent[3].cost }} crafting material</li>
+    </ul>
+  </div>
+  </div>
+
+  <div class="d-flex px-4 py-1 mt-4 justify-content-around">
+    <div class="card align-items-center shadow-lg border border-2 border-secondary" style="width: 20vw;">
+      <img src="{{ permanent[4].itemType.asset }}" class="card-img-top" alt="rank">
+      <div class="card-body">
+        <h5 class="card-title text-center h4 fw-bolder">{{ permanent[4].itemType.name.replace("_", " ") }}</h5>
+      </div>
+      <ul class="list-group list-group-flush text-center">
+        <li class="list-group-item h5 fw-bold fst-italic">{{ permanent[4].cost }} crafting material</li>
+      </ul>
+    </div>
+
+    <div class="card align-items-center shadow-lg border border-2 border-secondary" style="width: 20vw;">
+      <img src="{{ permanent[5].itemType.asset }}" class="card-img-top" alt="rank">
+      <div class="card-body">
+        <h5 class="card-title text-center h4 fw-bolder">{{ permanent[5].itemType.name.replace("_", " ") }}</h5>
+      </div>
+      <ul class="list-group list-group-flush text-center">
+        <li class="list-group-item h5 fw-bold fst-italic">{{ permanent[5].cost }} crafting material</li>
+      </ul>
+    </div>
+  </div>
   </div>
 
 {% endblock %}
@@ -199,10 +132,6 @@
 <footer class="d-flex flex-wrap justify-content-between py-3 my-4 border-top">
   <div class="col-md-4 d-flex align-items-center">
     <a href="/" class="ms-5 me-2 mb-md-0 text-muted text-decoration-none lh-1">
-      <!-- <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-emoji-wink" viewBox="0 0 16 16">
-        <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
-        <path d="M4.285 9.567a.5.5 0 0 1 .683.183A3.498 3.498 0 0 0 8 11.5a3.498 3.498 0 0 0 3.032-1.75.5.5 0 1 1 .866.5A4.498 4.498 0 0 1 8 12.5a4.498 4.498 0 0 1-3.898-2.25.5.5 0 0 1 .183-.683zM7 6.5C7 7.328 6.552 8 6 8s-1-.672-1-1.5S5.448 5 6 5s1 .672 1 1.5zm1.757-.437a.5.5 0 0 1 .68.194.934.934 0 0 0 .813.493c.339 0 .645-.19.813-.493a.5.5 0 1 1 .874.486A1.934 1.934 0 0 1 10.25 7.75c-.73 0-1.356-.412-1.687-1.007a.5.5 0 0 1 .194-.68z"/>
-      </svg> -->
     </a>
     <span class="mb-3 mb-md-0 text-muted">attester '22</span>
   </div>

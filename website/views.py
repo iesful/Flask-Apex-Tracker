@@ -94,9 +94,9 @@ def crafter():
     info = requests.get('https://api.mozambiquehe.re/crafting?',
                         params=[('auth', '9139cb7e0dc0f2243066a047510d9137')])
 
-    #print(info.text)
+    print(info.text)
     info = info.json()
-    #print(info)
+
     daily_items = []
     weekly_items = []
     permanent_items = []
@@ -105,33 +105,22 @@ def crafter():
         if item['bundleType'] == 'daily':
             content = item['bundleContent']
             for cont in content:
-                item_name, item_asset, item_price = cont['itemType']['name'], cont['itemType']['asset'], cont['cost']
-                group = (item_name, item_asset, item_price)
-                if group in daily_items:
-                    continue
-                else:
-                    daily_items.append(group)
+                daily_items.append(cont)
         elif item['bundleType'] == 'weekly':
             content = item['bundleContent']
             for cont in content:
-                item_name, item_asset, item_price = cont['itemType']['name'], cont['itemType']['asset'], cont['cost']
-                group = (item_name, item_asset, item_price)
-                if group in weekly_items:
-                    continue
-                else:
-                    weekly_items.append(group)
-        else:
+                weekly_items.append(cont)
+        elif item['bundleType'] == 'permanent':
             content = item['bundleContent']
             for cont in content:
-                item_name, item_asset, item_price = cont['itemType']['name'], cont['itemType']['asset'], cont['cost']
-                group = (item_name, item_asset, item_price)
-                if group in permanent_items:
-                    continue
-                else:
-                    permanent_items.append(group)
+                permanent_items.append(cont)
+                break
 
-    return render_template("crafter.html", items=[daily_items, weekly_items, permanent_items])
-
+    return render_template("crafter.html", 
+                        daily=daily_items, 
+                        weekly=weekly_items, 
+                        permanent=permanent_items)
+    
 
 @views.route("/player", methods=['GET', 'POST'])
 def player():
@@ -151,19 +140,13 @@ def player():
         info = requests.get('https://api.mozambiquehe.re/bridge?',
                         params=params)
 
-        # get request for baseline predator rp
-        # pred_info = requests.get('https://api.mozambiquehe.re/predator?',
-        #                 params=[('auth', '9139cb7e0dc0f2243066a047510d9137')])
-
-        # validates both get requests' status codes
+        # validates get requests' status codes
         if info.status_code == requests.codes.ok:
             
             # converts content of the get requests into json
-            # pred_info = pred_info.json()
             print(info.text)
             info = info.json()
             
-
             # extra validation for 202 status code but player not found
             if 'Error' in info:
                 flash(f'{info["Error"].lower()}', category='error')
