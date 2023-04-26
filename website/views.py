@@ -14,7 +14,7 @@ def home():
 def maps():
 
     info = requests.get('https://api.mozambiquehe.re/maprotation?',
-                        params=[('auth', '9139cb7e0dc0f2243066a047510d9137')])
+                        params=[('auth', 'key')])
 
     print(info)
     info = info.json()
@@ -37,7 +37,7 @@ def to_pred():
         player_platform = request.form.get('playerplatform')
 
         # parameters for API get request
-        params = [('auth', '9139cb7e0dc0f2243066a047510d9137'), ('player', player_name), ('platform', player_platform)]
+        params = [('auth', 'key'), ('player', player_name), ('platform', player_platform)]
         
         # get request for player info
         info = requests.get('https://api.mozambiquehe.re/bridge?',
@@ -45,7 +45,7 @@ def to_pred():
 
         # get request for baseline predator rp
         pred_info = requests.get('https://api.mozambiquehe.re/predator?',
-                        params=[('auth', '9139cb7e0dc0f2243066a047510d9137')])
+                        params=[('auth', 'key')])
 
         # validates both get requests' status codes
         if info.status_code == requests.codes.ok and pred_info.status_code == requests.codes.ok:
@@ -92,7 +92,7 @@ def services():
 @views.route("/crafter")
 def crafter():
     info = requests.get('https://api.mozambiquehe.re/crafting?',
-                        params=[('auth', '9139cb7e0dc0f2243066a047510d9137')])
+                        params=[('auth', 'key')])
 
     print(info.text)
     info = info.json()
@@ -134,7 +134,7 @@ def player():
         player_platform = request.form.get('playerplatform')
 
         # parameters for API get request
-        params = [('auth', '9139cb7e0dc0f2243066a047510d9137'), ('player', player_name), ('platform', player_platform)]
+        params = [('auth', 'key'), ('player', player_name), ('platform', player_platform)]
         
         # get request for player info
         info = requests.get('https://api.mozambiquehe.re/bridge?',
